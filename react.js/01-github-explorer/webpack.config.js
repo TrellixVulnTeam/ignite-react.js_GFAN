@@ -1,5 +1,12 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const isDevelopment = process.env.isDevelopment !='production';
 module.exports={
+    //Definindo o modo, se é de produção ou desenvolvimento
+    mode: isDevelopment? 'development' : 'production',
+    // ferramenta de source map
+    // source-map vai com um pouco mais detalhes e demora um pouco mais
+    devtool: isDevelopment?'eval-source-map' : 'source-map',
     //nome arquivo de entrada
     entry: path.resolve(__dirname,'src','index.jsx'),
     //arquivo que eu vou gerar com o webpack
@@ -11,6 +18,14 @@ module.exports={
     resolve:{
         extensions:['.js', '.jsx'],
     },
+    // devServer: {
+    //     contentBase: path.resolve(__dirname, 'public/'),
+    // },
+    plugins:[
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname,'public','index.html')
+        })
+    ],
     //configurações de como a aplicação vai se comportar quando eu estiver importando cada um dos tipos de arquivos
     module:{
         rules:[
