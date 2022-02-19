@@ -39,6 +39,12 @@ module.exports={
                 //Vai converter o arquivo jsx pra uma forma que o browser entenda
                 use:'babel-loader',
                 
+            },
+     
+            {
+                test: /\.scss$/,
+                exclude:/node_modules/,
+                use:['style-loader', 'css-loader','sass-loader'],
             }
         ],
     }
