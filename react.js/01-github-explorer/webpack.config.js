@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const isDevelopment = process.env.isDevelopment !='production';
+const ReactRefreshWebPackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 module.exports={
     //Definindo o modo, se é de produção ou desenvolvimento
     mode: isDevelopment? 'development' : 'production',
@@ -18,10 +19,11 @@ module.exports={
     resolve:{
         extensions:['.js', '.jsx'],
     },
-    // devServer: {
-    //     contentBase: path.resolve(__dirname, 'public/'),
-    // },
+    devServer: {
+        static: path.resolve(__dirname, 'public'),
+    },
     plugins:[
+        isDevelopment && new ReactRefreshWebPackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname,'public','index.html')
         })
