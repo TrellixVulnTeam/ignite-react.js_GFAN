@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+  
+    "lib": ["dom","dom.iterable","esnext"], 
+    //informa que estamos usando jsx na nossa aplicação, pra não dar erro de html dentro de js/ts                                   
+    "jsx": "react-jsx",                               
+    "module": "commonjs",                               
+    "moduleResolution": "node",                      
+    "resolveJsonModule": true, 
+    // quer dizer que podemos ter arquivos tanto js quanto ts                      
+    "allowJs": true,                                 
+    "noEmit": true,                                  
+    "isolatedModules": true,                        
+    "allowSyntheticDefaultImports": true,            
+    "esModuleInterop": true,                           
+    "forceConsistentCasingInFileNames": true,           
+    "strict": true,                                     
+    "skipLibCheck": true                                
+  },
+  // onde o código da nossa aplicação vai estar
+  "include": ["src"]
+}
